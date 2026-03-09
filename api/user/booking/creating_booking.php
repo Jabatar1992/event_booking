@@ -5,15 +5,15 @@ include "../../head.php";
 
 if (isset($_POST['event_id'], $_POST['number_of_tickets'], $_POST['total_amount'])) {
 
-   // $user_id           = cleanme(trim($_POST['user_id']));
     $event_id          = cleanme(trim($_POST['event_id']));
     $number_of_tickets = cleanme(trim($_POST['number_of_tickets']));
     $total_amount      = cleanme(trim($_POST['total_amount']));
-    $booking_status    = isset($_POST['booking_status']) ? cleanme(trim($_POST['booking_status'])) : "pending";
 
+    // Default booking status
+    $booking_status = "pending";
 
-    $datasentin=ValidateAPITokenSentIN();
-    $user_id=$datasentin->usertoken;
+    $datasentin = ValidateAPITokenSentIN();
+    $user_id = $datasentin->usertoken;
 
 
 
