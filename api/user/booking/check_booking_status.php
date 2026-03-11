@@ -4,18 +4,18 @@ $method = "GET";
 $cache  = "no-cache";
 include "../../head.php";
 
-// ======================
+
 // CHECK BOOKING STATUS
-// ======================
+
 
 if (isset($_GET['user_id']) && isset($_GET['event_id'])) {
 
     $user_id  = cleanme(trim($_GET['user_id']));
     $event_id = cleanme(trim($_GET['event_id']));
 
-    // ======================
+    
     // VALIDATION
-    // ======================
+    
 
     if (input_is_invalid($user_id) || input_is_invalid($event_id)) {
 
@@ -27,9 +27,9 @@ if (isset($_GET['user_id']) && isset($_GET['event_id'])) {
 
     }
 
-    // ======================
+    
     // FETCH BOOKING STATUS
-    // ======================
+    
 
     $query = $connect->prepare("
         SELECT id, user_id, event_id, number_of_tickets, total_amount, booking_status, booked_at

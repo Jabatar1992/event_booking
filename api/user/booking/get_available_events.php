@@ -4,9 +4,9 @@ $method = "GET";
 $cache  = "no-cache";
 include "../../head.php";
 
-// ======================
+
 // FETCH AVAILABLE EVENTS
-// ======================
+
 
 $query = $connect->prepare("
     SELECT 
@@ -29,17 +29,17 @@ $result = $query->get_result();
 
 $events = [];
 
-// ======================
+
 // LOOP THROUGH RESULTS
-// ======================
+
 
 while ($row = $result->fetch_assoc()) {
     $events[] = $row;
 }
 
-// ======================
+
 // RESPONSE
-// ======================
+
 
 if (count($events) > 0) {
 

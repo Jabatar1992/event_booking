@@ -8,11 +8,9 @@ if (isset($_POST['user_id'])) {
     $user_id = cleanme(trim($_POST['user_id']));
 
 
-   // $datasentin=ValidateAPITokenSentIN();
-    //$user_id=$datasentin->usertoken;
-    // ======================
+    
     // VALIDATION SECTION
-    // ======================
+    
 
     if (input_is_invalid($user_id)) {
 
@@ -24,9 +22,9 @@ if (isset($_POST['user_id'])) {
 
     } else {
 
-        // ======================
+        
         // CHECK USER EXISTS
-        // ======================
+        
 
         $checkUser = $connect->prepare("SELECT id FROM users WHERE id = ?");
         $checkUser->bind_param("i", $user_id);
@@ -39,9 +37,9 @@ if (isset($_POST['user_id'])) {
 
         } else {
 
-            // ======================
+            
             // GET USER BOOKINGS
-            // ======================
+            
 
             $getBookings = $connect->prepare("
                 SELECT * FROM bookings 

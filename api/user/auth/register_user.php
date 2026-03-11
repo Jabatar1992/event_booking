@@ -11,9 +11,9 @@ if (isset($_POST['fullname'], $_POST['email'], $_POST['password'])) {
     $phone    = isset($_POST['phone']) ? cleanme(trim($_POST['phone'])) : null;
     $password = cleanme(trim($_POST['password']));
 
-    // ======================
+    
     // VALIDATION SECTION
-    // ======================
+
 
     if (input_is_invalid($fullname) || input_is_invalid($email) || input_is_invalid($password)) {
         respondBadRequest("Fullname, Email and Password are required.");
@@ -38,9 +38,9 @@ if (isset($_POST['fullname'], $_POST['email'], $_POST['password'])) {
 
     } else {
 
-        // ======================
+        
         // CHECK IF EMAIL EXISTS
-        // ======================
+        
 
         $checkUser = $connect->prepare("SELECT id FROM users WHERE email = ?");
         $checkUser->bind_param("s", $email);
@@ -53,9 +53,9 @@ if (isset($_POST['fullname'], $_POST['email'], $_POST['password'])) {
 
         } else {
 
-            // ======================
+            
             // INSERT NEW USER
-            // ======================
+            
 
             $insertUser = $connect->prepare("
                 INSERT INTO users (fullname, email, phone, password)

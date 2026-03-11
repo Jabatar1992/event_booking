@@ -7,9 +7,9 @@ if (isset($_GET['event_id'])) {
 
     $event_id = cleanme(trim($_GET['event_id']));
 
-    // ======================
+
     // VALIDATION SECTION
-    // ======================
+    
     if (input_is_invalid($event_id)) {
 
         respondBadRequest("Event ID is required.");
@@ -20,9 +20,9 @@ if (isset($_GET['event_id'])) {
 
     } else {
 
-        // ======================
+        
         // CHECK EVENT EXISTS
-        // ======================
+        
         $checkEvent = $connect->prepare("
             SELECT id, title, total_seats, available_seats
             FROM events
