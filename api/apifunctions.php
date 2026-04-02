@@ -1,7 +1,10 @@
 
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+
 
  function respondMethodNotAlowed()
     {
@@ -194,7 +197,7 @@ use Firebase\JWT\Key;
        
         try {
           
-                $companyprivateKey = "PrivatekeyPrivatekeyPrivatekeyPrivatekeyPrivatekeyPrivatekeyPrivatekey";
+                $companyprivateKey = bin2hex(random_bytes(64)); // 128 characters;
                 $serverName = 'SerServernameServernameServernamevername';
                 $minutetoend =60;//how many min
                 $issuedAt = new \DateTimeImmutable();
@@ -228,7 +231,7 @@ use Firebase\JWT\Key;
     function ValidateAPITokenSentIN($whocalled=1)
     {
         try {
-             $companyprivateKey = "PrivatekeyPrivatekeyPrivatekeyPrivatekeyPrivatekeyPrivatekeyPrivatekey";
+             $companyprivateKey = "f3b9a8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9";
                 $serverName = 'SerServernameServernameServernamevername';
 
             $headerName = 'Authorization';

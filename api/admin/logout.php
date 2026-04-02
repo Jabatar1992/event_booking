@@ -16,7 +16,7 @@ if(isset($_POST['admin_id'])){
     }else{
 
         // check if admin exists
-        $checkadmin = $connect->prepare("SELECT * FROM admin WHERE id=?");
+        $checkadmin = $connect->prepare("SELECT * FROM admin WHERE admin_id=?");
         $checkadmin->bind_param("i", $admin_id);
         $checkadmin->execute();
         $result = $checkadmin->get_result();
@@ -24,10 +24,10 @@ if(isset($_POST['admin_id'])){
         if($result->num_rows > 0){
 
            
-    $accesstoken=getTokenToSendAPI($admin_id);
+   /// $accesstoken=getTokenToSendAPI($admin_id);
 
     // Login successful
-    respondOK( ['access_token'=>$accesstoken],"Logout successful.");
+    respondOK( [],"Logout successful.");
 
 } else {
     respondBadRequest("Invalid request. admin ID and password are required.");

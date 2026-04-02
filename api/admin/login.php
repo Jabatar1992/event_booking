@@ -13,7 +13,7 @@ if(isset($_POST['admin_id']) && isset($_POST['password'])){
     }else if(!is_numeric($admin_id)){ 
         respondBadRequest("admin ID must be numeric");
     }else {
-        $getdataemail =  $connect->prepare("SELECT * FROM admin where id=? and password=?"); 
+        $getdataemail =  $connect->prepare("SELECT * FROM admin where admin_id=? and password=?"); 
         $getdataemail->bind_param("is",$admin_id,$password);
         $getdataemail->execute();
         $getresultemail = $getdataemail->get_result();
