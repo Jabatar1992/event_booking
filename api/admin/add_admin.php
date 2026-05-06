@@ -10,7 +10,7 @@ if (isset($_POST['fullname'], $_POST['email'], $_POST['password'])) {
     $phone    = isset($_POST['phone']) ? cleanme(trim($_POST['phone'])) : NULL;
     $password = cleanme(trim($_POST['password']));
 
-    // Validation using else-if structure
+    
     if (input_is_invalid($fullname) || input_is_invalid($email) || input_is_invalid($password)) {
         respondBadRequest("Full name, email and password are required.");
         exit;
